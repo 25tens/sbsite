@@ -1,0 +1,402 @@
+{% extends 'blog/base.html' %}
+{% load static from staticfiles %}
+
+{% block extra_head %}
+      
+       <style>
+           .post_photo { max-width: 350px;
+                         max-height: 300px;
+                        }
+       </style>
+ {% endblock %}
+
+{% block content %}
+
+
+    <div class="container-fluid p-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <img class="centered img-fluid" src="{% static 'img/slide10.png' %}" alt=""
+          style="width:100%;">
+        <h2 class="mb-5" ></h2>
+        <div class="media border-0 p-3">
+        <img src="{% static 'img/easel7.png' %}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:80px;">
+          <div class="media-body">
+         
+          <h4>재미있으면서 생각하게 하는 
+            미술 </h4>
+          <p class="lead mb-5">창작미술은 재미있으면서, 생각하는 미술교육을 지향합니다. 많이 보고  &lt;<strong>표현력</strong>&gt;, 잘 보고  &lt;<strong>관찰력</strong>&gt;, 
+          새롭게 볼 수 있는  &lt;<strong>창의력</strong>&gt; 과정을 통해 우리 아이들이 창의적인 감성의 기초를 마련하고, 
+          미술 자신감을 가질 수 있게 최선을 다합니다.<br>
+          창작미술에는 발자국 소리가 큰 자신감 있는 아이들이 있습니다.</p>
+    
+          </div>
+          </div>
+       
+        <div class="media border-0 p-3">
+    <img src="{% static 'img/brush2.png' %}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:80px;">
+    <div class="media-body">
+      <h4>단계별 수업 내용 <small><i></i></small></h4>
+      <p><i class="fa fa-star" aria-hidden="true"></i> 크레파스화,  살아있는 그림과 수채화  단계별 지도과정을 소개합니다.</p>
+      <span class="">자세히  보기</span>
+
+      <div class="btn-group">
+    <button type="button" class="btn btn-primary btn-myButtonn" data-toggle="modal" data-target="#myModaltable">크레파스화</button>
+    <button type="button" class="btn btn-primary btn-myButtonn" data-toggle="modal" data-target="#myModaltable">수채화</button>
+    
+  </div>
+     
+            
+    </div>
+  </div>
+ </div>
+</section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="news">
+        <div class="my-auto">
+          <h2 class="mb-5"></h2>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+            
+               {% for post in post_list %}
+          <div class="item mb-5">
+            <div class="media">
+               {% if post.photo %}
+              <img class="mr-3 img-fluid post_photo post-thumb d-md-flex " src="{{ post.photo.url }}" style="width:50%" alt="image">
+               {% endif %}
+              <div class="media-body">
+                <h5 class="title mb-1">{{ post.title }}</h5>
+               <div class="meta mb-1"> {{ post.published_date }}
+                  <!-- <span class="date">Published 2 days ago</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span> -->
+                </div>
+               
+               <a class="more-link" href="{% url 'post_detail' pk=post.pk %}">Read more &rarr;</a> 
+              </div><!--//media-body-->
+              </div><!--//media-->
+          </div><!--//item-->
+          {% endfor %} 
+            
+           </div> 
+          </div>
+        </div>
+      </section>
+
+      <hr class="m-0">
+
+     
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+        <div class="my-auto">
+          <h2 class="mb-5"></h2>
+
+          <div class="subheading mb-3">재미있으면서 생각하는 미술 </div>
+          <ul class="list-inline dev-icons">
+            <li class="list-inline-item">
+              <i class="fas fa-palette"></i>
+            </li>
+            <li class="list-inline-item">
+              <i class="fas fa-paint-brush"></i>
+            </li>
+            <li class="list-inline-item">
+              <i class="fas fa-cut"></i>
+            </li>
+            <li class="list-inline-item">
+              <i class="far fa-images"></i>
+            </li>
+             <li class="list-inline-item">
+             <i class="fas fa-child"></i>
+            </li>
+          </ul>
+
+          <!-- <div class="subheading mb-3">Workflow</div>
+          <ul class="fa-ul mb-0">
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Mobile-First, Responsive Design</li>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Cross Browser Testing &amp; Debugging</li>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Cross Functional Teams</li>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Agile Development &amp; Scrum</li>
+          </ul>
+        </div> -->
+      </section>
+
+      <hr class="m-0">
+
+     
+
+      <hr class="m-0">
+
+     
+    </div>
+
+
+
+
+ 
+
+    <!-- Posts section -->
+ 
+       
+              
+
+  
+
+   
+         
+  
+
+<div class="modal fade" id="myModaltable" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+   
+                
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        <div class="modal-body">
+    
+ 
+  
+  <h4>크레파스화 단계별 지도과정</h4>
+   
+  <table class="table table-striped" style="table-layout:fixed">
+    <thead>
+      <tr>
+        <th style="width:30%">단계</th>
+        <th style="width:70%">수업내용</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+    <td> 초급1</td>
+    <td>여러가지 재료 이용한 표현력 가능성을 위한 그림</td>
+  </tr>
+  <tr>
+    <td> 초급2</td>
+    <td>주제에 알맞은 표현력과 배경 탐색을 위한 그림</td>
+  </tr>
+  <tr>
+    <td> 중급1</td>
+    <td>주제와 배경 표현 가능성을 위한 색체 기법 그림</td>
+  </tr>
+  <tr>
+    <td> 중급2</td>
+    <td>주제와 배경 표현 가능성을 위한 색체 기법 심화 단계</td>
+  </tr>
+  <tr>
+    <td> 고급1</td>
+    <td>원근을 이용한 주제 표현과 중첩된 배경 그림 </td>
+  </tr>
+  <tr>
+    <td> 고급2</td>
+    <td>고급1의 심화 과정으로 수채화 과정을 위한 준비 과정</td>
+  </tr> 
+     </tbody>
+  </table>
+        <table class="table table-striped">
+           <h4>연필화 단계별 지도과정</h4>
+   
+   <thead>
+      <tr>
+        <th style="width:30%">단계</th>
+        <th style="width:70%">수업내용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+    <td> 초급1</td>
+    <td>사람모습을 간단히 표현하고 어울리는 글쓰기</td>
+  </tr>
+  <tr>
+    <td> 초급2</td>
+    <td>사람모습을 자세히 표현하고 어울리는 글쓰기</td>
+  </tr>
+  <tr>
+    <td> 중급1</td>
+    <td>사람모습을 자세히 표현하고 간단한 배경과 글쓰기</td>
+  </tr>
+  <tr>
+    <td> 중급2</td>
+    <td>사람모습을 자세히 표현하고 자세한 배경과 글쓰기</td>
+  </tr>
+  <tr>
+    <td> 고급1</td>
+    <td>중첩된 사람모습을 자세히 표현하고 자세한 배경과 글쓰기 </td>
+  </tr>
+  <tr>
+    <td> 고급2</td>
+    <td>중첩된 사람모습을 자세히 표현하고 중첩된 배경과 글쓰기</td>
+  </tr> 
+    </tbody>
+   
+  </table>
+</div>
+   <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+    <!--  수채화 내용 Modal -->
+  <div class="modal fade" id="myModaltablee" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+   
+                
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        <div class="modal-body">
+    
+  <h3> 수채화 초급 단계별 수업내용 </h3>
+  <br>
+  <h4>정물화</h4>
+   
+  <table class="table table-striped" style="table-layout:fixed">
+    <thead>
+      <tr>
+        <th style="width:30%">단계</th>
+        <th style="width:70%">수업내용</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+    <td> 1</td>
+    <td>선긋기(4B연필과 붓 이용)</td>
+  </tr>
+  <tr>
+    <td> 2</td>
+    <td>겹쳐 칠하기와 면 색칠</td>
+  </tr>
+  <tr>
+    <td> 3</td>
+    <td>명도단계</td>
+  </tr>
+  <tr>
+    <td> 4</td>
+    <td>채도단계</td>
+  </tr>
+  <tr>
+    <td> 5</td>
+    <td>석고 기물을 이용한 뎃생과 채색 (1)원기둥 (2)원뿔 (3)육면체 (4)구</td>
+  </tr>
+  <tr>
+    <td> 6</td>
+    <td>기본 기물 구도를  이용한 개체별 채색  (1)컵, 화분 (2)당근 (3)벽돌 (4)양파, 사과, 항아리</td>
+  </tr> 
+     </tbody>
+  </table>
+        <table class="table table-striped">
+           <h4>풍경화</h4>
+   
+   <thead>
+      <tr>
+        <th style="width:30%">단계</th>
+        <th style="width:70%">수업내용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+    <td> 1</td>
+    <td>하늘, 산</td>
+  </tr>
+  <tr>
+    <td> 2</td>
+    <td>나뭇잎</td>
+  </tr>
+  <tr>
+    <td> 3</td>
+    <td>풀밭</td>
+  </tr>
+  <tr>
+    <td> 4</td>
+    <td>길 (흙길, 아스팔트길)</td>
+  </tr>
+  <tr>
+    <td> 5</td>
+    <td>숲이 있는 길 (울타리가 있는 길)</td>
+  </tr>
+  <tr>
+    <td> 6</td>
+    <td>계곡, 호수</td>
+  </tr> 
+   <tr>
+    <td> 7</td>
+    <td>나무 (계절별 채색)</td>
+  </tr> 
+   <tr>
+    <td> 8</td>
+    <td>바위</td>
+  </tr> 
+   <tr>
+    <td> 9</td>
+    <td>돌담</td>
+  </tr> 
+   <tr>
+    <td> 10</td>
+    <td>꽃 (개나리, 철쭉, 벚꽃)</td>
+  </tr> 
+   <tr>
+    <td> 11</td>
+    <td>건물과 집</td>
+  </tr> 
+   <tr>
+    <td> 12</td>
+    <td>계단</td>
+  </tr> 
+   <tr>
+    <td> 13</td>
+    <td>벤치</td>
+  </tr> 
+   <tr>
+    <td> 14</td>
+    <td>기와</td>
+  </tr> 
+    </tbody>
+   
+  </table>
+</div>
+   <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+{% endblock  %}
+   
+   
+	
+
+
+
+
+
+
+ 
+ 
+          

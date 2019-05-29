@@ -1,0 +1,118 @@
+{% extends 'blog/base.html' %}
+{% load static from staticfiles %}
+
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+{% block content %}
+
+
+ <div class="container-fluid p-0">
+    <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="">
+        <div class="my-auto">
+        <h2 class="mb-5"></h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0">상담 문의</h3>
+              <div class="subheading mb-3"> </div>
+               <h5 class="card-title pt-3">메일보내기</h5>
+              <form class="form-horizontal" role="form" method="post"  action="https://formspree.io/25tens@naver.com">
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">이름</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" name="name" placeholder="" value="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">이메일</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="message" class="col-sm-2 control-label">메세지</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="4" name="message"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+      <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+      <! Will be used to display an alert to the user>
+    </div>
+  </div>
+</form>
+                <div class="card-deck m-b-1">
+
+                	 <div class="card border-0">
+                    <div class="card-block">
+                    	  <h5 class="card-title pt-3">위치보기</h5>
+                          
+                         <div class="map-responsive">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6521.79617728619!2d128.79113156817334!3d35.18409251527917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568cf13ea64cfb9%3A0x59eb9d9a392499f5!2z64yA7ZWc66-86rWtIOqyveyDgeuCqOuPhCDquYDtlbTsi5wg7J6l7Jyg66m0IOqzhOuPmeuhnCA4Ng!5e0!3m2!1sko!2skr!4v1467588518834" width="293" height="300" frameborder="0" style="border:0" allowfullscreen></iframe> 
+						
+                        </div>
+                    </div>
+                 </div>
+               <div class="card border-0">
+                    <div class="card-block">
+
+                       
+                        <h5 class="card-title pt-3"></h5>
+                         <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><i class="fas fa-h-square"></i></td>
+        <td>김해시 계동로86</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><i class="fas fa-phone-square"></i></td>
+        <td>055-311-3738</td>
+      </tr>
+       <tr>
+        <td></td>
+        <td><i class="fas fa-envelope-square"></i></td>
+        <td>info@chang-jak.com</td>
+      </tr>
+    </tbody>
+  </table>
+          </div>
+                   </div>
+
+               
+            </div>
+            </div>
+           </div>
+      </div>
+      </section>
+     </div>
+      <hr class="m-0">
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+                     
+{% endblock  %} 
+
